@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#eeeeee">
+<meta name="description" content="Explore Gülcan's architectural and interior design portfolio as an interactive, two-page book.">
+<title>Portfolio | Gülcan Anlıtan — Architecture & Interior Design</title>
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<link rel="stylesheet" href="/assets/style.css">
+<link rel="stylesheet" href="/assets/editorial.css">
+<link rel="stylesheet" href="/assets/portfolio-book.css">
+<script defer src="/assets/script.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.js"></script>
+<script defer src="/assets/portfolio-book.js"></script>
+</head>
+<body class="editorial-site ed-portfolio-page">
+<a class="skip" href="#main">Skip to content</a>
+<header class="ed-header" id="top"><nav class="ed-container ed-nav" aria-label="Main navigation">
+<a class="ed-identity" href="/" aria-label="Gülcan Anlıtan — Home"><strong>GÜLCAN ANLITAN<span>.</span></strong><span class="ed-role">Architect &amp; Interior Designer</span></a>
+<div class="nav-links ed-nav-links" id="main-nav"><a href="/">Home</a><a href="/portfolio/" aria-current="page">Portfolio</a><a href="/about/">About</a><a href="/#contact">Contact</a></div>
+<button class="menu-button ed-menu-button" type="button" aria-label="Open menu" aria-controls="main-nav" aria-expanded="false">☰</button>
+</nav></header>
+<main id="main">
+<h1 class="folio-a11y-title">Architecture portfolio</h1>
+<section class="folio-stage" aria-label="Interactive PDF portfolio">
+<div class="folio-stage-shell">
+<div class="folio-stage-top"><span>GÜLCAN / ARCHITECTURE</span><span>A curated collection of work</span></div>
+<div id="folio-reader" class="folio-reader">
+<div class="folio-book-area">
+<div id="architecture-book" class="folio-book" role="group" aria-label="Interactive portfolio: cover then paired pages"></div>
+<div id="folio-loading" class="folio-loading" role="status"><span class="folio-loading-indicator" aria-hidden="true"></span><span>Preparing the portfolio pages…</span></div>
+</div>
+<p id="folio-message" class="folio-message" role="status" hidden></p>
+<div class="folio-controls">
+<div class="folio-nav">
+<button type="button" id="folio-prev" aria-label="Previous spread" disabled><span aria-hidden="true">←</span> Previous</button>
+<button type="button" id="folio-next" aria-label="Next spread" disabled>Next <span aria-hidden="true">→</span></button>
+</div>
+<div id="folio-counter" class="folio-counter" aria-live="polite">— / —</div>
+<div class="folio-tools">
+<button type="button" id="folio-zoom-open" aria-label="Inspect paired pages up close" disabled>Zoom <span aria-hidden="true">↗</span></button>
+<button type="button" id="folio-sound" aria-label="Toggle page turning sound" aria-pressed="false" disabled><span class="folio-sound-text">Sound off</span></button>
+<button type="button" id="folio-fullscreen" disabled>Fullscreen</button>
+</div>
+</div>
+<p class="folio-hint">Drag a page corner or use the arrows. On mobile, facing pages stay together; tap Zoom to inspect fine details.</p>
+</div>
+<div class="folio-stage-bottom"><span class="folio-book-status">Physical-book inspired, digitally presented.</span><span>PDF · Interactive edition</span></div>
+</div></section>
+<div id="folio-zoom-dialog" class="folio-zoom-dialog" role="dialog" aria-modal="true" aria-label="Zoomed portfolio spread" hidden>
+<div class="folio-zoom-top"><div><strong>Detail view</strong><p id="folio-zoom-label">— / —</p></div><button type="button" id="folio-zoom-close" class="folio-zoom-close">Close ✕</button></div>
+<div class="folio-zoom-scroll"><div id="folio-zoom-pages" class="folio-zoom-pages" aria-label="Magnified facing pages"></div></div>
+<div class="folio-zoom-controls"><label for="folio-zoom-range">Magnification</label><input id="folio-zoom-range" type="range" min="1" max="3.5" value="1" step=".25"><output for="folio-zoom-range" id="folio-zoom-value">100%</output></div>
+</div>
+</main>
+<footer class="ed-footer"><div class="ed-container ed-footer-content"><a class="ed-footer-brand" href="/">GÜLCAN ANLITAN.</a><span>© 2026 Gülcan Anlıtan · İzmir, Türkiye</span><div class="ed-footer-links"><a href="https://www.behance.net/glcananltan" target="_blank" rel="noopener noreferrer">Behance ↗</a><a href="https://www.linkedin.com/in/g%C3%BClcan-anl%C4%B1tan-895337190/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></div></div></footer>
+</body></html>

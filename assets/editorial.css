@@ -1,0 +1,530 @@
+/* Gülcan — site-wide editorial identity, 2026. */
+/* Jost font is loaded once from style.css, included on every page. */
+:root{--ed-dark:#242724;--ed-dark-2:#333632;--ed-paper:#eeeae4;--ed-paper-2:#f6f4f1;--ed-text:#292c29;--ed-muted:#6e726c;--ed-line:#d2d2ca;--ed-accent:#8e9283}
+html{scroll-behavior:smooth;scroll-padding-top:85px}
+body.editorial-site{background:var(--ed-paper);color:var(--ed-text);font-family:"Jost",Arial,sans-serif}
+.editorial-site h1,.editorial-site h2,.editorial-site p{margin-top:0}
+.ed-container{width:min(100%,1520px);padding-inline:clamp(22px,5vw,88px);margin-inline:auto}
+.ed-header{position:relative;background:var(--ed-dark);color:#f5f3ee;z-index:30}
+.ed-nav{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:94px;border-bottom:1px solid #ffffff2a}
+.ed-identity{display:flex;align-items:center;gap:24px;white-space:nowrap}
+.ed-identity strong{font-family:"Jost",sans-serif;font-size:24px;font-weight:700;letter-spacing:-.055em}
+.ed-identity strong span{color:#a9aea1}
+.ed-role{padding-left:24px;border-left:1px solid #ffffff47;font-size:10px;color:#dbded6;letter-spacing:.12em;text-transform:uppercase}
+.ed-nav-links{display:flex;gap:clamp(22px,3vw,50px);align-items:center}
+.ed-nav-links a{font-size:12px;color:#e8e8e1;text-transform:none;letter-spacing:.01em;font-weight:500}
+.ed-nav-links a:hover,.ed-nav-links a[aria-current="page"]{color:#fff;text-decoration:underline;text-underline-offset:9px}
+.ed-menu-button{display:none;color:inherit}
+.ed-hero{background:var(--ed-dark);color:#f0f0eb;padding-bottom:clamp(58px,7.5vw,116px)}
+.ed-hero-intro,.ed-hero-end{display:flex;justify-content:space-between;gap:20px;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#bec2b8}
+.ed-hero-intro{padding-block:clamp(32px,5vw,69px) 26px}
+.ed-hero-end{padding-top:18px;align-items:center}
+.ed-hero-end span:last-child{font-size:24px;line-height:1}
+.ed-hero-print{margin:0;padding:clamp(18px,3vw,48px);background:#fff;box-shadow:0 24px 90px #0b0d0b35}
+.ed-image-scroll{width:100%;overflow:auto hidden}
+.ed-hero-print img{display:block;width:100%;max-width:100%;height:auto;object-fit:contain;object-position:center;background:#fff;mix-blend-mode:normal}
+.ed-section{padding-top:clamp(92px,10vw,160px);padding-bottom:clamp(98px,10vw,165px)}
+.ed-section-grid{display:grid;grid-template-columns:minmax(165px,25%) minmax(0,1fr);gap:clamp(25px,4vw,80px)}
+.ed-label{display:flex;align-items:baseline;gap:18px;padding-top:11px;font-size:12px;letter-spacing:.015em;font-weight:600}
+.ed-index{font-size:11px;letter-spacing:.15em;color:#91958b;font-weight:500}
+.ed-overline{font-size:10px;letter-spacing:.17em;text-transform:uppercase;font-weight:600;color:#81877c;margin-bottom:22px}
+.ed-section-content h1,.ed-section-content h2,.ed-inner-title{font-family:"Jost",Arial,sans-serif;font-weight:500;line-height:1.07;font-size:clamp(47px,6vw,93px);letter-spacing:-.06em;margin:0}
+.ed-section-content h1 em,.ed-section-content h2 em,.ed-inner-title em{font-family:"Jost",sans-serif;font-weight:400;letter-spacing:-.07em}
+.ed-about{background:var(--ed-paper-2)}
+.ed-about-detail{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(36px,5vw,95px);padding-top:clamp(52px,7vw,115px);align-items:start}
+.ed-lead{font-family:"Jost",sans-serif;font-size:clamp(20px,2.1vw,30px);font-weight:400;line-height:1.5;letter-spacing:-.035em;max-width:600px}
+.ed-about-detail>div p,.ed-portfolio-heading>p,.ed-contact-intro,.ed-inner-copy{font-size:15px;line-height:1.95;color:#686b65;max-width:510px}
+.ed-inline-link{display:inline-flex;gap:34px;align-items:center;margin-top:26px;border-bottom:1px solid currentColor;padding-bottom:9px;font-size:12px;letter-spacing:.02em;font-weight:600}
+.ed-inline-link:hover{gap:43px}
+.ed-portfolio{background:#dedcd5}
+.ed-portfolio-heading{display:flex;justify-content:space-between;align-items:end;gap:60px;margin-bottom:clamp(60px,7vw,110px)}
+.ed-portfolio-heading>p{max-width:260px;margin:0 0 7px}
+.ed-book-link{display:block;position:relative;color:var(--ed-text);background:#bdbdb5;overflow:hidden;isolation:isolate}
+.ed-book-scene{height:clamp(350px,48vw,665px);position:relative;background:radial-gradient(ellipse at 57% 14%,#e9e9e3,#c4c4bb 67%,#aead9f);overflow:hidden;perspective:1600px;transition:background .4s}
+.ed-book-shadow{position:absolute;width:68%;height:13%;left:20%;bottom:12%;background:#24262257;filter:blur(31px);transform:rotate(-6deg);border-radius:100%}
+.ed-book-back{position:absolute;top:19%;left:12%;width:76%;height:65%;background:#626864;transform:rotate(-7deg) skewY(-1deg);box-shadow:22px 21px 20px #55594f61}
+.ed-book-pages{position:absolute;top:17%;left:11%;width:77%;height:63%;display:grid;grid-template-columns:1fr 1fr;transform:rotate(-6deg) skewY(-1deg);filter:drop-shadow(16px 21px 12px #4a4e464f);transition:transform .65s cubic-bezier(.2,.8,.2,1)}
+.ed-book-link:hover .ed-book-pages,.ed-book-link:focus-visible .ed-book-pages{transform:rotate(-3deg) skewY(-1deg) translateY(-10px)}
+.ed-book-page{min-width:0;display:flex;flex-direction:column;justify-content:space-between;gap:10px;background:#fdfcf9;padding:clamp(16px,3vw,48px);box-shadow:inset 0 0 18px #a5a8a213}
+.ed-book-left{border-right:1px solid #d9d9d4;background:linear-gradient(95deg,#fcfbf8 80%,#eae9e3)}
+.ed-book-right{background:linear-gradient(90deg,#eceae5,#fdfcf9 12%)}
+.ed-book-kicker{font-size:clamp(7px,.9vw,12px);letter-spacing:.12em;color:#6b716a;font-weight:600}
+.ed-book-page img{height:55%;width:100%;object-fit:contain;mix-blend-mode:multiply}
+.ed-book-right img{object-fit:cover;filter:grayscale(1) contrast(.9);opacity:.85}
+.ed-book-caption{display:flex;justify-content:space-between;gap:10px;font-size:clamp(7px,.9vw,12px);color:#6b6f69}
+.ed-book-caption i{font-style:normal}
+.ed-book-overlay{position:absolute;bottom:25px;left:clamp(24px,3vw,44px);right:clamp(24px,3vw,44px);display:flex;justify-content:space-between;align-items:center;font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-weight:600}
+.ed-book-arrow{display:grid;place-items:center;width:55px;height:55px;border:1px solid #343830;border-radius:50%;font-size:27px;transition:transform .3s,background .3s,color .3s}
+.ed-book-link:hover .ed-book-arrow{transform:rotate(45deg);background:#272b26;color:#fff}
+.ed-contact{background:var(--ed-paper-2)}
+.ed-contact-content{display:grid;grid-template-columns:minmax(250px,.75fr) minmax(0,1fr);gap:clamp(45px,6vw,100px)}
+.ed-contact-content h2{font-size:clamp(46px,4.5vw,74px)}
+.ed-contact-intro{margin-top:31px}
+.ed-contact-intro a{color:var(--ed-text);border-bottom:1px solid}
+.ed-contact-form{display:flex;flex-direction:column;gap:25px;padding-top:5px}
+.ed-contact-form label{font-size:12px;font-weight:600;display:block}
+.ed-contact-form input:not([type=hidden]),.ed-contact-form textarea{margin-top:12px;display:block;width:100%;border:0;border-bottom:1px solid #bdbeb6;border-radius:0;padding:14px 0 17px;background:transparent;font:400 14px/1.5 "Jost",Arial,sans-serif;color:#252924;outline:0;resize:vertical}
+.ed-contact-form input:not([type=hidden]):focus,.ed-contact-form textarea:focus{border-color:#292f2b;box-shadow:0 1px 0 #292f2b}
+.ed-contact-form input::placeholder,.ed-contact-form textarea::placeholder{color:#9b9f99}
+.ed-form-pair{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.ed-contact-form .ed-honey{position:absolute;left:-9999px;opacity:0;width:1px;height:1px;pointer-events:none}
+.ed-form-bottom{display:flex;align-items:end;justify-content:space-between;gap:30px;padding-top:8px}
+.ed-form-bottom p{font-size:11px;line-height:1.65;color:#858982;max-width:250px;margin:0}
+.ed-form-bottom button{border:0;background:#292e29;color:#fff;display:inline-flex;justify-content:space-between;align-items:center;gap:45px;padding:18px 20px;font:600 12px/1 "Jost",Arial,sans-serif;white-space:nowrap}
+.ed-form-bottom button:hover{background:#4a514a}
+.ed-form-bottom button span{font-size:20px;font-weight:400}
+.ed-footer{background:var(--ed-dark);color:#eff0ea}
+.ed-footer-content{min-height:148px;display:flex;justify-content:space-between;align-items:center;gap:28px}
+.ed-footer-brand{font-family:"Jost",sans-serif;font-weight:700;font-size:25px;letter-spacing:-.055em}
+.ed-footer-content>span{font-size:11px;color:#b7bdb4}
+.ed-footer-links{display:flex;align-items:center;gap:35px;font-size:12px}
+.ed-footer-links a:hover{border-bottom:1px solid currentColor}
+.editorial-site .inner-hero{padding-top:clamp(75px,9vw,128px)}
+.ed-inner{background:var(--ed-paper-2);padding-block:clamp(90px,9vw,140px)}
+.ed-inner-grid{display:grid;grid-template-columns:minmax(160px,25%) minmax(0,1fr);gap:clamp(25px,5vw,80px)}
+.ed-inner-title{margin-top:16px;margin-bottom:60px}
+.ed-inner-copy{max-width:750px;font-size:18px}
+.ed-inner-copy p{margin-bottom:24px}
+.ed-portfolio-page{background:var(--ed-paper-2)}
+.ed-portfolio-page .reader-section{background:#dedcd5}
+.ed-portfolio-page .reader-about{padding-top:60px;padding-bottom:100px}
+.ed-portfolio-page .reader-section .book{background:#c6c3b9}
+.ed-thanks{text-align:center;min-height:65vh;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:30px}
+.ed-thanks h1{font:500 clamp(47px,6vw,82px)/1.05 "Jost",sans-serif;letter-spacing:-.07em;margin:0}
+.ed-thanks p{max-width:520px;color:#646964;line-height:1.8}
+@media(max-width:950px){.ed-section-grid{grid-template-columns:minmax(100px,21%) 1fr}.ed-contact-content{grid-template-columns:1fr}.ed-portfolio-heading{gap:25px}.ed-about-detail{gap:35px}}
+@media(max-width:700px){
+.ed-nav{min-height:77px}
+.ed-identity{gap:14px}
+.ed-identity strong{font-size:21px}
+.ed-role{padding-left:14px;font-size:8px;letter-spacing:.07em;max-width:145px;white-space:normal}
+.ed-menu-button{display:block;background:none;border:0;color:inherit;font-size:24px}
+.ed-nav-links{display:none;position:absolute;top:76px;left:0;right:0;padding:30px clamp(22px,5vw,88px);background:var(--ed-dark);flex-direction:column;align-items:flex-start;gap:26px}
+.ed-nav-links.open{display:flex}
+.ed-nav-links a{font-size:16px}
+.ed-hero{padding-bottom:58px}
+.ed-hero-intro{padding-block:35px 20px;gap:10px;font-size:8px}
+.ed-hero-intro span:last-child{text-align:right}
+.ed-hero-print{padding:16px}
+.ed-image-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:thin}
+.ed-image-scroll img{max-width:none;width:940px;height:auto}
+.ed-hero-end{font-size:9px}
+.ed-section{padding-block:80px 95px}
+.ed-section-grid,.ed-inner-grid{grid-template-columns:1fr;gap:37px}
+.ed-label{padding-top:0}
+.ed-section-content h1,.ed-section-content h2{font-size:clamp(52px,11.8vw,76px)}
+.ed-about-detail{display:block;padding-top:45px}
+.ed-lead{margin-bottom:24px}
+.ed-portfolio-heading{display:block;margin-bottom:38px}
+.ed-portfolio-heading>p{margin-top:25px;max-width:420px}
+.ed-book-scene{height:400px}
+.ed-book-back{width:88%;left:5%;top:28%;height:46%}
+.ed-book-pages{width:90%;left:4%;top:26%;height:48%}
+.ed-book-page{padding:14px}
+.ed-book-page img{height:54%}
+.ed-book-overlay{bottom:17px;left:18px;right:18px}
+.ed-book-arrow{width:42px;height:42px;font-size:22px}
+.ed-contact-content{gap:45px}
+.ed-form-pair{grid-template-columns:1fr;gap:24px}
+.ed-form-bottom{align-items:stretch;flex-direction:column;gap:20px}
+.ed-form-bottom button{align-self:flex-start}
+.ed-footer-content{padding-block:38px;min-height:0;flex-direction:column;align-items:flex-start;gap:24px}
+.ed-inner{padding-block:85px}
+.ed-inner-title{margin-bottom:35px}
+.ed-inner-copy{font-size:16px}
+}
+@media(prefers-reduced-motion:reduce){.ed-book-pages,.ed-book-arrow,.ed-inline-link{transition:none}}
+
+/* Body-copy alignment across the editorial site: preserve left-aligned titles, labels and controls. */
+.editorial-site .ed-about-detail p,
+.editorial-site .ed-portfolio-heading > p,
+.editorial-site .ed-contact-intro,
+.editorial-site .ed-inner-copy p,
+.editorial-site .ed-inner-copy:not(:has(p)),
+.editorial-site .reader-about > p,
+.editorial-site .ed-thanks p {
+  text-align: left;
+  text-justify: auto;
+  hyphens: none;
+  -webkit-hyphens: none;
+}
+
+/* Architectural elevation caption sits on the right, independent of sibling count. */
+.ed-hero-intro.ed-hero-intro-right{justify-content:flex-end;text-align:right}
+
+/* Keep the longer full-name signature legible on narrow screens. */
+@media(max-width:700px){
+  .ed-identity{flex-direction:column;align-items:flex-start;gap:3px;min-width:0;white-space:normal}
+  .ed-identity strong{font-size:clamp(17px,5vw,21px);line-height:1.1;white-space:nowrap}
+  .ed-identity .ed-role{padding-left:0;border-left:0;max-width:none;font-size:8px;white-space:nowrap}
+  .ed-nav{gap:12px}
+}
+
+
+/* 2026 light editorial refresh — applied across all pages. */
+body.editorial-site{background:#fff;color:#111}
+.editorial-site .ed-container{
+  width:100%;
+  max-width:none;
+  padding-inline:clamp(18px,2.65vw,64px);
+}
+.editorial-site .ed-header{
+  background:#eeeeee;
+  color:#111;
+}
+.editorial-site .ed-nav{border-bottom:1px solid #16161635}
+.editorial-site .ed-identity strong{
+  font-family:"Jost",Arial,sans-serif;
+  font-weight:200;
+  font-size:clamp(25px,2.15vw,34px);
+  letter-spacing:.025em;
+  text-transform:uppercase;
+  line-height:1.1;
+}
+.editorial-site .ed-identity strong span{color:#111}
+.editorial-site .ed-role{
+  color:#111;
+  border-left-color:#1115;
+}
+.editorial-site .ed-nav-links a{
+  color:#111;
+  font-size:clamp(13px,1.14vw,17px);
+  font-weight:400;
+}
+.editorial-site .ed-nav-links a:hover,
+.editorial-site .ed-nav-links a[aria-current="page"]{
+  color:#111;
+  text-decoration:underline;
+}
+.editorial-site .ed-menu-button{color:#111}
+.editorial-site .ed-about,
+.editorial-site .ed-inner,
+.editorial-site .ed-contact{background:#fff;color:#111}
+.editorial-site .ed-portfolio{background:#eeeeee;color:#111}
+.editorial-site .ed-about .ed-index,
+.editorial-site .ed-about .ed-overline,
+.editorial-site .ed-overline,
+.editorial-site .ed-index,
+.editorial-site .ed-label,
+.editorial-site .ed-lead,
+.editorial-site .ed-about-detail>div p,
+.editorial-site .ed-portfolio-heading>p,
+.editorial-site .ed-contact-intro,
+.editorial-site .ed-inner-copy,
+.editorial-site .ed-inner-copy p,
+.editorial-site .ed-contact-form label,
+.editorial-site .ed-form-bottom p{
+  color:#111;
+}
+.editorial-site .ed-inline-link{color:#111}
+.editorial-site .ed-contact-form button{
+  background:#eeeeee;
+  color:#111;
+  border:1px solid #222;
+}
+.editorial-site .ed-contact-form button:hover{background:#dedede;color:#111}
+.editorial-site .ed-footer{
+  background:#eeeeee;
+  color:#111;
+}
+.editorial-site .ed-footer-brand{
+  color:#111;
+  font-weight:200;
+  letter-spacing:.025em;
+}
+.editorial-site .ed-footer-content>span,
+.editorial-site .ed-footer-links{color:#111}
+@media(max-width:700px){
+  .editorial-site .ed-container{padding-inline:clamp(16px,4.8vw,24px)}
+  .editorial-site .ed-nav-links{background:#eeeeee}
+  .editorial-site .ed-nav-links a{font-size:16px}
+  .editorial-site .ed-identity strong{
+    font-size:clamp(23px,5.9vw,27px);
+    letter-spacing:.015em;
+  }
+  .editorial-site .ed-footer-brand{font-size:25px}
+}
+
+
+/* Brand lockup and section alignment — revision */
+.editorial-site .ed-identity{
+  display:inline-flex;
+  flex:0 0 auto;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:4px;
+  white-space:nowrap;
+}
+.editorial-site .ed-identity strong{
+  display:block;
+  width:max-content;
+  flex:0 0 auto;
+}
+.editorial-site .ed-identity .ed-role{
+  display:block;
+  width:max-content;
+  max-width:none;
+  margin:0;
+  padding:0;
+  border:0;
+  flex:0 0 auto;
+  font-size:10px;
+  line-height:1.25;
+  letter-spacing:.12em;
+  white-space:nowrap;
+  transform-origin:left center;
+  transform:none;
+}
+/* A slimmer common sidebar and aligned content for About/Portfolio/Contact. */
+.home-projects .ed-section-grid{
+  grid-template-columns:minmax(105px,15%) minmax(0,1fr);
+  gap:clamp(22px,2.3vw,44px);
+}
+.home-projects .ed-portfolio-heading{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(230px,300px);
+  justify-content:start;
+  align-items:end;
+  gap:clamp(25px,3.4vw,60px);
+  max-width:1010px;
+  margin-bottom:clamp(50px,5vw,76px);
+}
+.home-projects .ed-portfolio-heading>p{
+  max-width:300px;
+  margin:0 0 9px;
+}
+.home-projects .ed-portfolio-showcase{
+  max-width:1160px;
+  width:100%;
+  margin-inline:auto;
+}
+.home-projects .ed-portfolio-showcase .ed-book-link{
+  width:100%;
+}
+.home-projects .ed-contact-content{
+  grid-template-columns:minmax(250px,.78fr) minmax(0,1fr);
+  gap:clamp(28px,4vw,68px);
+}
+@media(max-width:950px){
+  .home-projects .ed-portfolio-heading{
+    grid-template-columns:minmax(0,1fr) minmax(180px,240px);
+  }
+  .home-projects .ed-contact-content{grid-template-columns:1fr}
+}
+@media(max-width:700px){
+  .editorial-site .ed-identity{gap:3px}
+  .editorial-site .ed-identity .ed-role{
+    font-size:8px;
+    letter-spacing:.07em;
+  }
+  .home-projects .ed-section-grid{
+    grid-template-columns:1fr;
+    gap:32px;
+  }
+  .home-projects .ed-portfolio-heading{
+    display:block;
+    max-width:none;
+    margin-bottom:36px;
+  }
+  .home-projects .ed-portfolio-heading>p{
+    margin-top:24px;
+    max-width:420px;
+  }
+  .home-projects .ed-portfolio-showcase{max-width:100%}
+}
+
+
+/* Natural desktop lockup, white footer and tighter About columns — 2026-11 */
+/* Desktop: original side-by-side signature. Neither line is stretched. */
+.editorial-site .ed-identity{
+  display:inline-flex;
+  flex-direction:row;
+  align-items:center;
+  gap:clamp(16px,1.7vw,26px);
+  white-space:nowrap;
+}
+.editorial-site .ed-identity .ed-role{
+  display:block;
+  width:auto;
+  max-width:none;
+  margin:0;
+  padding:0 0 0 clamp(15px,1.4vw,24px);
+  border:0;
+  border-left:1px solid #1115;
+  font-size:clamp(10px,.82vw,12px);
+  line-height:1.4;
+  letter-spacing:.09em;
+  text-transform:uppercase;
+  white-space:nowrap;
+  transform:none;
+}
+/* The footer is white everywhere; retain the black typography. */
+.editorial-site .ed-footer{
+  background:#fff;
+  color:#111;
+  border-top:1px solid #e4e4e4;
+}
+/* Bring the two About text columns closer without widening the text. */
+.home-projects .ed-about-detail{
+  grid-template-columns:minmax(0,1.06fr) minmax(0,.94fr);
+  gap:clamp(18px,2vw,34px);
+  max-width:1120px;
+}
+@media(max-width:700px){
+  .editorial-site .ed-identity{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:3px;
+  }
+  .editorial-site .ed-identity .ed-role{
+    width:auto;
+    max-width:none;
+    padding:0;
+    border:0;
+    font-size:9px;
+    line-height:1.35;
+    letter-spacing:.07em;
+    transform:none;
+  }
+  .home-projects .ed-about-detail{max-width:100%}
+}
+
+
+/* Balanced editorial content grids and natural mobile lockup */
+.home-projects .ed-section > .ed-container,
+.editorial-site .ed-inner > .ed-container{
+  max-width:1540px;
+  margin-inline:auto;
+}
+.home-projects .ed-section-grid,
+.editorial-site .ed-inner-grid{
+  grid-template-columns:minmax(115px,15%) minmax(0,1fr);
+  gap:clamp(24px,2.6vw,46px);
+  align-items:start;
+}
+.home-projects .ed-about-detail{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  align-items:start;
+  gap:clamp(26px,3.1vw,52px);
+  max-width:1200px;
+  padding-top:clamp(44px,5vw,78px);
+}
+.home-projects .ed-about-detail .ed-lead{
+  width:auto;
+  max-width:none;
+  font-size:clamp(19px,1.55vw,25px);
+  line-height:1.55;
+  letter-spacing:-.012em;
+  text-align:left;
+  hyphens:none;
+}
+.home-projects .ed-about-detail>div p{
+  width:auto;
+  max-width:none;
+  font-size:clamp(16px,1.15vw,18px);
+  line-height:1.75;
+  text-align:left;
+  hyphens:none;
+}
+.home-projects .ed-about-detail .ed-inline-link{margin-top:20px}
+.home-projects .ed-portfolio-heading{
+  display:grid;
+  grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);
+  align-items:end;
+  justify-content:start;
+  gap:clamp(28px,3vw,50px);
+  max-width:1200px;
+}
+.home-projects .ed-portfolio-heading>p{
+  width:auto;
+  max-width:470px;
+  font-size:clamp(16px,1.15vw,18px);
+  line-height:1.75;
+  text-align:left;
+  hyphens:none;
+}
+.home-projects .ed-portfolio-showcase{
+  max-width:1240px;
+  padding-inline:clamp(18px,2.65vw,48px);
+}
+.home-projects .ed-contact-content{
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  align-items:start;
+  gap:clamp(28px,3.6vw,62px);
+  max-width:1200px;
+}
+.home-projects .ed-contact-intro{
+  max-width:550px;
+  font-size:clamp(16px,1.15vw,18px);
+  line-height:1.75;
+  text-align:left;
+  hyphens:none;
+}
+.editorial-site .ed-inner-copy p,
+.editorial-site .ed-portfolio-heading>p,
+.editorial-site .ed-contact-intro{
+  text-align:left;
+  hyphens:none;
+}
+@media(max-width:950px){
+  .home-projects .ed-about-detail{gap:clamp(20px,2.8vw,36px)}
+  .home-projects .ed-portfolio-heading{
+    grid-template-columns:minmax(0,1fr) minmax(0,.85fr);
+    gap:25px;
+  }
+  .home-projects .ed-contact-content{grid-template-columns:1fr;max-width:690px}
+}
+@media(max-width:700px){
+  .editorial-site .ed-identity{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:4px;
+  }
+  .editorial-site .ed-identity strong{
+    font-size:clamp(22px,6.75vw,29px);
+    letter-spacing:.025em;
+    line-height:1.08;
+  }
+  .editorial-site .ed-identity .ed-role{
+    display:block;
+    font-size:clamp(12px,3.8vw,16px);
+    line-height:1.16;
+    letter-spacing:.035em;
+    text-transform:uppercase;
+    white-space:nowrap;
+    transform:none;
+    padding:0;
+    border:0;
+  }
+  .home-projects .ed-section-grid,
+  .editorial-site .ed-inner-grid{
+    grid-template-columns:minmax(0,1fr);
+    gap:28px;
+  }
+  .home-projects .ed-about-detail{
+    display:block;
+    max-width:100%;
+    padding-top:36px;
+  }
+  .home-projects .ed-about-detail .ed-lead{
+    font-size:clamp(19px,5vw,23px);
+    margin-bottom:24px;
+  }
+  .home-projects .ed-about-detail>div p{font-size:16px;line-height:1.7}
+  .home-projects .ed-portfolio-heading{
+    display:block;
+    max-width:100%;
+  }
+  .home-projects .ed-portfolio-heading>p{
+    font-size:16px;
+    max-width:100%;
+    margin-top:25px;
+  }
+  .home-projects .ed-portfolio-showcase{
+    max-width:100%;
+    padding-inline:clamp(16px,4.8vw,24px);
+  }
+  .home-projects .ed-contact-content{max-width:100%}
+  .home-projects .ed-contact-intro{font-size:16px}
+}
