@@ -8,13 +8,7 @@
   const enable = () => {
     if (loaded) return;
     loaded = true;
-    window.sc_project = 13372680;
-    window.sc_invisible = 1;
-    window.sc_security = "af13d25f";
-    const script = document.createElement("script");
-    script.src = "https://www.statcounter.com/counter/counter.js";
-    script.async = true;
-    document.head.appendChild(script);
+    window.initStatCounter();
   };
   const panel = document.createElement("section");
   panel.className = "analytics-choice";
