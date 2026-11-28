@@ -15,23 +15,23 @@
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.js"></script>
 <script defer src="/assets/portfolio-book.js"></script>
-<link rel="stylesheet" href="/assets/analytics-consent.css">
-<!-- Statcounter: initialized only after optional analytics consent -->
+<!-- Statcounter: cookie-free configuration; respect an existing opt-out -->
 <script>
 var sc_project=13372680;
 var sc_invisible=1;
 var sc_security="af13d25f";
 var sc_client_storage="disabled";
-function initStatCounter() {
-  if (window.statCounterInitialized) return;
-  window.statCounterInitialized = true;
+(function () {
+  try {
+    if (localStorage.getItem("gulcan-analytics-v1") === "no") return;
+  } catch (_) {}
+  if (navigator.globalPrivacyControl === true || navigator.doNotTrack === "1") return;
   var script = document.createElement("script");
   script.src = "https://www.statcounter.com/counter/counter.js";
   script.async = true;
   document.head.appendChild(script);
-}
+})();
 </script>
-<script defer src="/assets/analytics-consent.js?v=3"></script>
 </head>
 <body class="editorial-site ed-portfolio-page">
 <a class="skip" href="#main">Skip to content</a>
@@ -73,7 +73,7 @@ function initStatCounter() {
 <div class="folio-zoom-controls"><label for="folio-zoom-range">Magnification</label><input id="folio-zoom-range" type="range" min="1" max="3.5" value="1" step=".25"><output for="folio-zoom-range" id="folio-zoom-value">100%</output></div>
 </div>
 </main>
-<footer class="ed-footer"><div class="ed-container ed-footer-content"><a class="ed-footer-brand" href="/">GÜLCAN ANLITAN.</a><span>© 2026 Gülcan Anlıtan · İzmir, Türkiye</span><div class="ed-footer-links"><a href="https://www.behance.net/glcananltan" target="_blank" rel="noopener noreferrer">Behance ↗</a><a href="https://www.linkedin.com/in/g%C3%BClcan-anl%C4%B1tan-895337190/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="/privacy/">Privacy</a><button type="button" class="analytics-settings" data-analytics-settings hidden>Analytics settings</button></div></div></footer>
+<footer class="ed-footer"><div class="ed-container ed-footer-content"><a class="ed-footer-brand" href="/">GÜLCAN ANLITAN.</a><span>© 2026 Gülcan Anlıtan · İzmir, Türkiye</span><div class="ed-footer-links"><a href="https://www.behance.net/glcananltan" target="_blank" rel="noopener noreferrer">Behance ↗</a><a href="https://www.linkedin.com/in/g%C3%BClcan-anl%C4%B1tan-895337190/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="/privacy/">Privacy</a></div></div></footer>
 
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "785a4017461b4b3585a6602a32527442"}'></script><!-- End Cloudflare Web Analytics -->
 </body></html>
