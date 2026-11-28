@@ -7,8 +7,9 @@
   let loaded = false;
   const enable = () => {
     if (loaded) return;
-    loaded = true;
+    if (typeof window.initStatCounter !== "function") return;
     window.initStatCounter();
+    loaded = true;
   };
   const panel = document.createElement("section");
   panel.className = "analytics-choice";
