@@ -20,37 +20,31 @@
   panel.setAttribute("aria-label", "Analytics preferences");
   panel.innerHTML = '<p><strong>Analytics preferences</strong><br>May we use optional analytics to improve this website? <a href="/privacy/">Privacy Policy</a>.</p><div class="analytics-actions"><button type="button" data-choice="no">Decline</button><button type="button" data-choice="yes">Allow analytics</button></div><p class="analytics-signal" hidden>Your browser requests that tracking be disabled.</p>';
   document.body.appendChild(panel);
-  const settings = document.querySelectorAll("[data-analytics-settings]");
-  const allow = panel.querySelector('[data-choice="yes"]');
   if (privacySignal) {
-    allow.disabled = true;
+    panel.querySelector('[data-choice="yes"]').disabled = true;
     panel.querySelector(".analytics-signal").hidden = false;
   }
-  settings.forEach(button => {
-    button.hidden = false;
-    button.addEventListener("click", () => {
-      panel.hidden = false;
-      panel.querySelector("button").focus();
-    });
-  });
+  function openPreferences() {
+    panel.hidden = false;
+    if (location.hash === "#analytics-preferences") {
+      history.replaceState(null, "", location.pathname + location.search);
+    }
+  }
   panel.addEventListener("click", event => {
     const button = event.target.closest("button[data-choice]");
     if (!button || button.disabled) return;
-    const next = button.dataset.choice;
-    const wasLoaded = loaded;
-    choice = next;
-    let persisted = false;
-    try { localStorage.setItem(key, next); persisted = true; } catch (_) {}
+    choice = button.dataset.choice;
+    try { localStorage.setItem(key, choice); } catch (_) {}
     panel.hidden = true;
-    if (next === "yes") start();
-    else if (wasLoaded && persisted) location.reload();
-    else if (wasLoaded) {
-      // Stop future tracking on navigation; cannot undo requests already sent.
-      location.reload();
-    } else if (settings.length) settings[0].focus({preventScroll:true});
+    if (choice === "yes") start();
+    else if (loaded) location.reload();
   });
-  if (choice === "yes") start();
-  else if (choice !== "no" && !privacySignal) panel.hidden = false;
+  if (location.hash === "#analytics-preferences") openPreferences();
+  else if (choice === "yes") start();
+  else if (choice !== "no" && !privacySignal) openPreferences();
+  window.addEventListener("hashchange", () => {
+    if (location.hash === "#analytics-preferences") openPreferences();
+  });
   window.addEventListener("storage", event => {
     if (event.key === key && event.newValue !== choice) location.reload();
   });
