@@ -25,3 +25,10 @@
  .editorial-site .ed-nav{flex-wrap:wrap;row-gap:4px;padding-block:12px}
  .ed-header-tools{margin-left:auto}
 }
+
+/* Keep natural text widths measurable by the mobile brand alignment script. */
+@media(max-width:700px){
+ .editorial-site .ed-identity strong,.editorial-site .ed-identity .ed-role{width:max-content;max-width:none;flex:0 0 auto;align-self:flex-start}
+ html[lang="tr"] .home-projects .ed-contact-content h2{font-size:clamp(28px,5vw,64px);line-height:1.13;overflow-wrap:normal}
+}
+html[lang="tr"] .home-projects .ed-contact-content h2{font-size:clamp(30px,3.4vw,54px);line-height:1.15;letter-spacing:-.035em}

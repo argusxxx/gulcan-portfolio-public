@@ -14,23 +14,22 @@ function syncMobileBrandWidth(){
   for(const {title,subtitle} of brandPairs){
     subtitle.style.removeProperty("font-size");
     if(!mobileBrandQuery.matches)continue;
-    const titleWidth=title.getBoundingClientRect().width;
-    const subtitleWidth=subtitle.getBoundingClientRect().width;
-    const baseFontSize=parseFloat(getComputedStyle(subtitle).fontSize);
-    if(titleWidth>0&&subtitleWidth>0&&baseFontSize>0){
-      subtitle.style.fontSize=(baseFontSize*titleWidth/subtitleWidth).toFixed(3)+"px";
-      /* Second pass compensates for fractional pixel rounding and text layout. */
-      const adjustedWidth=subtitle.getBoundingClientRect().width;
-      if(adjustedWidth>0&&Math.abs(titleWidth-adjustedWidth)>.35){
-        const adjustedSize=parseFloat(subtitle.style.fontSize);
-        subtitle.style.fontSize=(adjustedSize*titleWidth/adjustedWidth).toFixed(3)+"px";
-      }
+    // Both elements have their own natural text width; match by font size,
+    // never by stretching the characters or letter spacing.
+    const target=title.getBoundingClientRect().width;
+    for(let pass=0;pass<5;pass++){
+      const width=subtitle.getBoundingClientRect().width;
+      const size=parseFloat(getComputedStyle(subtitle).fontSize);
+      if(!(target>0&&width>0&&size>0)||Math.abs(target-width)<.15)break;
+      subtitle.style.fontSize=(size*target/width).toFixed(4)+"px";
     }
   }
 }
 if(brandPairs.length){
   syncMobileBrandWidth();
   document.fonts?.ready?.then(syncMobileBrandWidth);
+  document.fonts?.addEventListener?.("loadingdone",syncMobileBrandWidth);
+  window.addEventListener("pageshow",syncMobileBrandWidth);
   window.addEventListener("resize",syncMobileBrandWidth,{passive:true});
 }
 const book=document.getElementById("portfolio-book");if(!book)return;
