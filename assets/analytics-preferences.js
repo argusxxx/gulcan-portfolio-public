@@ -17,8 +17,9 @@
   const panel = document.createElement("section");
   panel.className = "analytics-choice";
   panel.hidden = true;
-  panel.setAttribute("aria-label", "Analytics preferences");
-  panel.innerHTML = '<p><strong>Analytics preferences</strong><br>May we use optional analytics to improve this website? <a href="/privacy/">Privacy Policy</a>.</p><div class="analytics-actions"><button type="button" data-choice="no">Decline</button><button type="button" data-choice="yes">Allow analytics</button></div><p class="analytics-signal" hidden>Your browser requests that tracking be disabled.</p>';
+  const tr = document.documentElement.lang === "tr";
+  panel.setAttribute("aria-label", tr ? "Analiz tercihleri" : "Analytics preferences");
+  panel.innerHTML = tr ? '<p><strong>Analiz tercihleri</strong><br>Siteyi geliştirmek için isteğe bağlı ziyaretçi istatistiklerini kullanmamıza izin verir misiniz? <a href="/tr/gizlilik/">Gizlilik Politikası</a>.</p><div class="analytics-actions"><button type="button" data-choice="no">Reddet</button><button type="button" data-choice="yes">İzin ver</button></div><p class="analytics-signal" hidden>Tarayıcınız takibin devre dışı bırakılmasını istiyor.</p>' : '<p><strong>Analytics preferences</strong><br>May we use optional analytics to improve this website? <a href="/privacy/">Privacy Policy</a>.</p><div class="analytics-actions"><button type="button" data-choice="no">Decline</button><button type="button" data-choice="yes">Allow analytics</button></div><p class="analytics-signal" hidden>Your browser requests that tracking be disabled.</p>';
   document.body.appendChild(panel);
   if (privacySignal) {
     panel.querySelector('[data-choice="yes"]').disabled = true;

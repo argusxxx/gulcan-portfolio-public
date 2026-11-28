@@ -1,6 +1,6 @@
 (()=>{"use strict";
 const menu=document.querySelector(".menu-button"),nav=document.querySelector(".nav-links");
-if(menu&&nav){menu.addEventListener("click",()=>{const open=nav.classList.toggle("open");menu.setAttribute("aria-expanded",String(open));menu.textContent=open?"✕":"☰"});nav.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{nav.classList.remove("open");menu.setAttribute("aria-expanded","false");menu.textContent="☰"}));}
+if(menu&&nav){menu.addEventListener("click",()=>{const open=nav.classList.toggle("open");menu.setAttribute("aria-expanded",String(open));menu.textContent=open?"✕":"☰";menu.setAttribute("aria-label",document.documentElement.lang==="tr"?(open?"Menüyü kapat":"Menüyü aç"):(open?"Close menu":"Open menu"))});nav.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{nav.classList.remove("open");menu.setAttribute("aria-expanded","false");menu.textContent="☰";menu.setAttribute("aria-label",document.documentElement.lang==="tr"?"Menüyü aç":"Open menu")}));}
 const glimpse=document.querySelector(".glimpse-art-scroll");
 if(glimpse){const centerGlimpse=()=>{if(window.matchMedia("(max-width:680px)").matches&&glimpse.scrollLeft===0){glimpse.scrollLeft=Math.max(0,(glimpse.scrollWidth-glimpse.clientWidth)/2)}};const art=glimpse.querySelector("img");if(art?.complete)centerGlimpse();else art?.addEventListener("load",centerGlimpse,{once:true});}
 /* Mobile brand lockup: match the two lines' natural rendered widths.

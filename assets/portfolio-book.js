@@ -18,6 +18,7 @@ const zoomPages=document.getElementById("folio-zoom-pages");
 const zoomLabel=document.getElementById("folio-zoom-label");
 const fullscreenButton=document.getElementById("folio-fullscreen");
 const pdfUrl="/assets/portfolio.pdf";
+const tr=document.documentElement.lang==="tr";
 let pdf=null,flip=null,total=0,aspect=1.41,pageW=500,pageH=704,active=0;
 let renderQueue=[],queued=new Set(),rendered=new Set(),activeJobs=0,buildId=0,lastW=window.innerWidth;
 let audio=null,soundEnabled=false,zoomLevel=1,zoomId=0;
@@ -77,7 +78,7 @@ async function renderPage(i,epoch){
   rendered.add(i);
  }catch(e){
   console.error("PDF page "+(i+1),e);
-  if(epoch===buildId&&node){node.textContent="Page "+(i+1)+" could not be displayed.";node.classList.add("folio-leaf-failed");}
+  if(epoch===buildId&&node){node.textContent=tr?(i+1)+". sayfa görüntülenemedi.":"Page "+(i+1)+" could not be displayed.";node.classList.add("folio-leaf-failed");}
  }
 }
 function runQueue(){
@@ -107,7 +108,7 @@ function initializeBook(index){
  for(let i=0;i<total;i++){
   const el=document.createElement("div");el.className="folio-leaf"+(i===0?" folio-leaf-cover":"");
   el.dataset.page=String(i);
-  el.setAttribute("role","img");el.setAttribute("aria-label","Portfolio page "+(i+1)+" of "+total);
+  el.setAttribute("role","img");el.setAttribute("aria-label",tr?"Portfolyo sayfası "+(i+1)+" / "+total:"Portfolio page "+(i+1)+" of "+total);
   if(i===0)el.setAttribute("data-density","hard");
   const loader=document.createElement("div");loader.className="folio-leaf-wait";
   loader.textContent=String(i+1).padStart(2,"0");el.appendChild(loader);
@@ -126,7 +127,7 @@ function initializeBook(index){
 function showFailed(e){
  console.error("Portfolio reader:",e);
  loading.hidden=true;setReady(false);
- setMessage("The interactive reader could not load. Please refresh the page and try again.",true);
+ setMessage(tr?"İnteraktif portfolyo yüklenemedi. Lütfen sayfayı yenileyip tekrar deneyin.":"The interactive reader could not load. Please refresh the page and try again.",true);
 }
 async function init(){
  setReady(false);
@@ -148,7 +149,7 @@ next.addEventListener("click",function(){if(flip){if(active===0)host.classList.r
 soundButton.addEventListener("click",function(){
  soundEnabled=!soundEnabled;
  soundButton.setAttribute("aria-pressed",String(soundEnabled));
- soundButton.querySelector(".folio-sound-text").textContent=soundEnabled?"Sound on":"Sound off";
+ soundButton.querySelector(".folio-sound-text").textContent=soundEnabled?(tr?"Ses açık":"Sound on"):(tr?"Ses kapalı":"Sound off");
  if(soundEnabled){try{const Ctx=window.AudioContext||window.webkitAudioContext;if(Ctx){audio=audio||new Ctx();audio.resume().catch(function(){});}}catch(e){}}
 });
 function zoomTo(value){
@@ -167,7 +168,7 @@ async function showZoom(){
  pages.forEach(i=>{
   const cell=document.createElement("div");cell.className="folio-zoom-page";
   if(i===null){cell.classList.add("folio-zoom-blank");zoomPages.appendChild(cell);return;}
-  cell.textContent="Rendering page "+(i+1)+"…";zoomPages.appendChild(cell);
+  cell.textContent=tr?(i+1)+". sayfa hazırlanıyor…":"Rendering page "+(i+1)+"…";zoomPages.appendChild(cell);
   (async()=>{
    try{
     const pg=await pdf.getPage(i+1);if(epoch!==zoomId)return;
@@ -177,9 +178,9 @@ async function showZoom(){
     const ctx=canvas.getContext("2d",{alpha:false});if(!ctx)return;
     await pg.render({canvasContext:ctx,viewport:viewport,background:"#ffffff"}).promise;
     if(epoch!==zoomId)return;
-    canvas.setAttribute("aria-label","Page "+(i+1));
+    canvas.setAttribute("aria-label",(tr?"Sayfa ":"Page ")+(i+1));
     cell.replaceChildren(canvas);
-   }catch(e){if(epoch===zoomId)cell.textContent="Page cannot be displayed.";}
+   }catch(e){if(epoch===zoomId)cell.textContent=tr?"Sayfa görüntülenemiyor.":"Page cannot be displayed.";}
   })();
  });
  zoomLabel.textContent=pageLabel();zoomTo(1);
@@ -195,7 +196,7 @@ fullscreenButton.addEventListener("click",function(){
  if(shell.requestFullscreen){shell.requestFullscreen().catch(()=>showZoom());}else showZoom();
 });
 document.addEventListener("fullscreenchange",function(){
- fullscreenButton.textContent=document.fullscreenElement?"Exit fullscreen":"Fullscreen";
+ fullscreenButton.textContent=document.fullscreenElement?(tr?"Tam ekrandan çık":"Exit fullscreen"):(tr?"Tam ekran":"Fullscreen");
 });
 window.addEventListener("keydown",function(e){
  if(!zoomDialog.hidden){if(e.key==="Escape"){closeZoom();e.preventDefault();}return;}

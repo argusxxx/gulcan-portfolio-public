@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://gulcan.net/</loc></url>
-  <url><loc>https://gulcan.net/about/</loc></url>
-  <url><loc>https://gulcan.net/portfolio/</loc></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url><loc>https://gulcan.net/</loc><xhtml:link rel="alternate" hreflang="en" href="https://gulcan.net/"/><xhtml:link rel="alternate" hreflang="tr" href="https://gulcan.net/tr/"/><xhtml:link rel="alternate" hreflang="x-default" href="https://gulcan.net/"/></url>
+  <url><loc>https://gulcan.net/tr/</loc><xhtml:link rel="alternate" hreflang="en" href="https://gulcan.net/"/><xhtml:link rel="alternate" hreflang="tr" href="https://gulcan.net/tr/"/><xhtml:link rel="alternate" hreflang="x-default" href="https://gulcan.net/"/></url>
+  <url><loc>https://gulcan.net/about/</loc><xhtml:link rel="alternate" hreflang="en" href="https://gulcan.net/about/"/><xhtml:link rel="alternate" hreflang="tr" href="https://gulcan.net/tr/hakkimda/"/><xhtml:link rel="alternate" hreflang="x-default" href="https://gulcan.net/about/"/></url>
+  <url><loc>https://gulcan.net/tr/hakkimda/</loc><xhtml:link rel="alternate" hreflang="en" href="https://gulcan.net/about/"/><xhtml:link rel="alternate" hreflang="tr" href="https://gulcan.net/tr/hakkimda/"/><xhtml:link rel="alternate" hreflang="x-default" href="https://gulcan.net/about/"/></url>
+  <url><loc>https://gulcan.net/portfolio/</loc><xhtml:link rel="alternate" hreflang="en" href="https://gulcan.net/portfolio/"/><xhtml:link rel="alternate" hreflang="tr" href="https://gulcan.net/tr/portfolyo/"/><xhtml:link rel="alternate" hreflang="x-default" href="https://gulcan.net/portfolio/"/></url>
+  <url><loc>https://gulcan.net/tr/portfolyo/</loc><xhtml:link rel="alternate" hreflang="en" href="https://gulcan.net/portfolio/"/><xhtml:link rel="alternate" hreflang="tr" href="https://gulcan.net/tr/portfolyo/"/><xhtml:link rel="alternate" hreflang="x-default" href="https://gulcan.net/portfolio/"/></url>
 </urlset>
